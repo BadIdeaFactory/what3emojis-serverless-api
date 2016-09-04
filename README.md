@@ -1,10 +1,18 @@
 # what3emojis-serverless
 
-API built with Amazon Lambda and the <a href="http://serverless.com">Serverless platform</a>
+API built with Amazon Lambda, Amazon API Gateway, and the <a href="http://serverless.com">Serverless platform</a>
 
 addressOf function returns the three-emoji address of a latitude/longitude
 
 coordOf function returns the latitude/longitude coordinate of a given emoji address
+
+## Sample request
+
+```
+curl --data '{"latitude":10,"longitude":-10}' https://wqoh7k8ad6.execute-api.us-east-1.amazonaws.com/prod
+
+> {"address":"📮🕝🌀","event":{"latitude":10,"longitude":-10}}
+```
 
 ## Installation
 
@@ -18,3 +26,9 @@ npm install geohash-emoji
 npm install serverless -g
 serverless deploy
 ```
+
+Set up Amazon API Gateway and create a POST method which calls on AWS Lambda
+
+Enable CORS on the service
+
+Publish the Amazon API Gateway to a named stage
